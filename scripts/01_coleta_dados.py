@@ -72,9 +72,7 @@ def gerar_dataset(n: int = N_CLIENTES) -> pd.DataFrame:
         "id_cliente": range(1, n + 1),
         "idade": np.random.randint(18, 70, size=n),
         "sexo": np.random.choice(["M", "F"], size=n, p=[0.48, 0.52]),
-        "renda_mensal": np.round(
-            np.random.lognormal(mean=8.5, sigma=0.6, size=n), 2
-        ),
+        "renda_mensal": np.round(np.random.lognormal(mean=8.5, sigma=0.6, size=n), 2),
         "tempo_conta_meses": np.random.randint(1, 120, size=n),
         "num_produtos": np.random.choice([1, 2, 3, 4], size=n, p=[0.40, 0.35, 0.15, 0.10]),
         "tem_credito": np.random.choice([0, 1], size=n, p=[0.25, 0.75]),
@@ -115,12 +113,12 @@ def gerar_dataset(n: int = N_CLIENTES) -> pd.DataFrame:
     # que os modelos de ML consigam aprender o padrão subjacente.
     reclamacoes_norm = df["num_reclamacoes"] / df["num_reclamacoes"].max()
     log_odds = (
-        -2.5                                                # bias
-        + 1.5 * reclamacoes_norm                            # +reclamações → +churn
-        + 2.0 * (1 - df["satisfacao"] / 5)                  # -satisfação → +churn
-        + 1.2 * (1 - df["tempo_conta_meses"] / 120)         # -tempo → +churn
-        + 1.0 * (1 - df["ativo"])                           # inativo → +churn
-        + 0.5 * (1 - df["num_produtos"] / 4)                # -produtos → +churn
+        -2.5  # bias
+        + 1.5 * reclamacoes_norm  # +reclamações → +churn
+        + 2.0 * (1 - df["satisfacao"] / 5)  # -satisfação → +churn
+        + 1.2 * (1 - df["tempo_conta_meses"] / 120)  # -tempo → +churn
+        + 1.0 * (1 - df["ativo"])  # inativo → +churn
+        + 0.5 * (1 - df["num_produtos"] / 4)  # -produtos → +churn
     )
     prob_churn = 1 / (1 + np.exp(-log_odds))
     df["churn"] = np.random.binomial(1, prob_churn)

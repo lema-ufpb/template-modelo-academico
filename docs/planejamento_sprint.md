@@ -4,8 +4,8 @@
 
 ---
 
-**Sprint nº:** _01_  
-**Período:** _DD/MM/AAAA a DD/MM/AAAA_  
+**Sprint nº:** _01_
+**Período:** _DD/MM/AAAA a DD/MM/AAAA_
 **Horas disponíveis estimadas:** _~20h_
 
 ---
@@ -71,7 +71,7 @@ _Uma frase clara do que você quer ter alcançado ao final da semana._
 ### O que vou mudar na próxima sprint?
 - _Ex: "Separar blocos de 2h sem interrupção para leitura"_
 
-### Meta cumprida? 
+### Meta cumprida?
 - [ ] Sim, totalmente
 - [ ] Parcialmente (_justifique_)
 - [ ] Não (_justifique_)

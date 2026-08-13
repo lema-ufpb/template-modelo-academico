@@ -31,6 +31,8 @@ dependencies = [
     # Notebooks
     "jupyter>=1.0",
     "ipykernel>=6.0",
+    # Utilitários
+    "openpyxl>=3.1",
 ]
 
 # ── Dependências opcionais ───────────────────────────────────────────────────
@@ -48,6 +50,8 @@ ml = [
 dev = [
     "ruff>=0.4",
     "pytest>=8.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
 ]
 
 # ── Ferramentas ──────────────────────────────────────────────────────────────
@@ -58,9 +62,15 @@ line-length = 100
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP"]
 
+[tool.ruff.lint.per-file-ignores]
+"**/*.ipynb" = ["E501"]
+
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.mypy]
+ignore_missing_imports = true

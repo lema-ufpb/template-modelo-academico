@@ -128,15 +128,16 @@ def engenharia_features(df: pd.DataFrame) -> pd.DataFrame:
     df["faixa_etaria"] = pd.cut(
         df["idade"],
         bins=[0, 25, 35, 45, 55, 100],
-        labels=["18-25", "26-35", "36-45", "46-55", "56+"]
+        labels=["18-25", "26-35", "36-45", "46-55", "56+"],
     )
     print("  + faixa_etaria: [18-25, 26-35, 36-45, 46-55, 56+]")
 
     # Indicador de cliente premium (saldo acima da mediana E renda acima da mediana)
     mediana_saldo = df["saldo"].median()
     mediana_renda = df["renda_mensal"].median()
-    df["cliente_premium"] = ((df["saldo"] > mediana_saldo) &
-                              (df["renda_mensal"] > mediana_renda)).astype(int)
+    df["cliente_premium"] = (
+        (df["saldo"] > mediana_saldo) & (df["renda_mensal"] > mediana_renda)
+    ).astype(int)
     print("  + cliente_premium: saldo > mediana AND renda > mediana")
 
     return df
@@ -166,16 +167,24 @@ def dividir_treino_teste(df: pd.DataFrame):
     y = df["churn"]
 
     X_treino, X_teste, y_treino, y_teste = train_test_split(
-        X, y,
+        X,
+        y,
         test_size=PROPORCAO_TESTE,
         random_state=SEED,
         stratify=y,
     )
 
     # Normalização das variáveis numéricas
-    colunas_norm = ["idade", "renda_mensal", "tempo_conta_meses", "saldo",
-                    "num_reclamacoes", "satisfacao", "renda_por_produto",
-                    "reclamacao_por_tempo"]
+    colunas_norm = [
+        "idade",
+        "renda_mensal",
+        "tempo_conta_meses",
+        "saldo",
+        "num_reclamacoes",
+        "satisfacao",
+        "renda_por_produto",
+        "reclamacao_por_tempo",
+    ]
     colunas_norm = [c for c in colunas_norm if c in X_treino.columns]
 
     scaler = StandardScaler()

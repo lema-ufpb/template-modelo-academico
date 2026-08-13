@@ -1,6 +1,6 @@
 # Changelog
 
-Todas as mudanças relevantes deste repositório-modelo são documentadas aqui.  
+Todas as mudanças relevantes deste repositório-modelo são documentadas aqui.
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
@@ -18,7 +18,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 - Seções "Como adaptar" nas docstrings de todos os 6 scripts Python
 
 ### Melhorado
-- **Dicas pedagógicas expandidas** em todos os 8 templates LaTeX (`tex/*/main.tex`):
+- **Dicas pedagógicas expandidas** em todos os 8 templates LaTeX (`latex/*/main.tex`):
   - Orientações detalhadas (8-15 linhas) por seção/capítulo
   - Perguntas-guia, exemplos de boas e más práticas, erros comuns
   - Cobertura: Resumo, Introdução, Fundamentação, Metodologia, Resultados, Conclusão
@@ -40,7 +40,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 - Fallback automático sklearn quando LightGBM não está disponível
 
 ### Melhorado
-- Pipeline gera figuras e tabelas diretamente em cada `tex/<doc>/`
+- Pipeline gera figuras e tabelas diretamente em cada `latex/<doc>/`
 - Makefile com cores ANSI e menu de ajuda estilizado
 
 ---

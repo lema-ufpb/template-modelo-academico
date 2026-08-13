@@ -22,8 +22,8 @@
 | 02 | `02_analise_exploratoria.py` | `dados/brutos/dataset_clientes.csv` | `resultados/figuras/*.png`, `resultados/metricas/estatisticas_descritivas.csv` | ~5s |
 | 03 | `03_preprocessamento.py` | `dados/brutos/dataset_clientes.csv` | `dados/processados/dataset_{processado,treino,teste}.csv` | ~3s |
 | 04 | `04_treinamento_modelo.py` | `dados/processados/dataset_treino.csv` | `modelos/*.joblib`, `resultados/metricas/validacao_cruzada.csv` | ~15s |
-| 05 | `05_avaliacao_modelo.py` | `dados/processados/dataset_teste.csv`, `modelos/*.joblib` | `resultados/figuras/*.png`, `resultados/metricas/*.csv`, `tex/*/tabelas/*.tex` | ~10s |
-| 06 | `06_exportar_figuras_eps.py` | `resultados/figuras/*.png` | `tex/*/figuras/*.eps` | ~20s |
+| 05 | `05_avaliacao_modelo.py` | `dados/processados/dataset_teste.csv`, `modelos/*.joblib` | `resultados/figuras/*.png`, `resultados/metricas/*.csv`, `latex/*/tabelas/*.tex` | ~10s |
+| 06 | `06_exportar_figuras_eps.py` | `resultados/figuras/*.png` | `latex/*/figuras/*.eps` | ~20s |
 
 \* Tempos aproximados em um computador moderno com o dataset de demonstração (1.000 registros).
 
@@ -76,12 +76,12 @@ Treina 3 classificadores (Regressão Logística, Random Forest, LightGBM) com va
 **Para adaptar:** Adicione ou remova modelos no dicionário `modelos` da função `definir_modelos()`. Para ajustar hiperparâmetros, altere os parâmetros do construtor de cada classificador.
 
 ### 05 — Avaliação de Modelos
-Calcula métricas no conjunto de teste (AUC-ROC, F1, Acurácia), gera curvas ROC, gráfico de importância de features, e tabelas LaTeX (comparação de modelos, coeficientes, matriz de confusão, estatísticas descritivas, dicionário de dados). As tabelas são salvas em **todos** os diretórios `tex/<doc>/tabelas/`.
+Calcula métricas no conjunto de teste (AUC-ROC, F1, Acurácia), gera curvas ROC, gráfico de importância de features, e tabelas LaTeX (comparação de modelos, coeficientes, matriz de confusão, estatísticas descritivas, dicionário de dados). As tabelas são salvas em **todos** os diretórios `latex/<doc>/tabelas/`.
 
 **Para adaptar:** Ajuste as métricas conforme seu problema (ex: adicione Recall, Precisão). Para problemas multiclasse, a geração de tabelas LaTeX precisará ser adaptada.
 
 ### 06 — Exportação de Figuras EPS
-Converte todas as figuras PNG em `resultados/figuras/` para o formato vetorial EPS (alta qualidade tipográfica) e as distribui para cada diretório `tex/<doc>/figuras/`. Também gera programaticamente o diagrama do pipeline metodológico.
+Converte todas as figuras PNG em `resultados/figuras/` para o formato vetorial EPS (alta qualidade tipográfica) e as distribui para cada diretório `latex/<doc>/figuras/`. Também gera programaticamente o diagrama do pipeline metodológico.
 
 **Para adaptar:** Geralmente não precisa de modificação. Se você adicionar novas figuras nos scripts anteriores, elas serão automaticamente convertidas e distribuídas.
 
@@ -102,6 +102,6 @@ Todos os scripts compartilham estas configurações para garantir reprodutibilid
 ## 🐛 Dicas de Debug
 
 - **Erro "FileNotFoundError":** Execute os scripts na ordem (01 → 06). Cada script depende da saída do anterior.
-- **Erro "ModuleNotFoundError":** Execute `uv sync` (ou `pip install -r requirements.txt`) para instalar dependências.
+- **Erro "ModuleNotFoundError":** Execute `uv sync` para instalar dependências.
 - **Aviso "LightGBM not found":** O script 04 usa GradientBoostingClassifier como fallback. Para instalar LightGBM: `uv sync --group ml`.
 - **Figuras não aparecem no PDF:** Verifique se executou o script 06 e depois recompilou o LaTeX com `make latex`.

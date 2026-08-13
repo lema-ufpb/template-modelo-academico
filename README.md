@@ -10,7 +10,7 @@ Este repositório serve como modelo de referência para estudantes do **Centro d
 
 Fazer ciência não é apenas apresentar números ou publicar um documento. Um trabalho científico se baseia em princípios fundamentais de **transparência, ética, honestidade intelectual e curiosidade**.
 
-Para que uma pesquisa tenha validade e seja útil para a comunidade (colegas, professores e outros cientistas), ela precisa permitir que os resultados sejam verificados de forma independente. 
+Para que uma pesquisa tenha validade e seja útil para a comunidade (colegas, professores e outros cientistas), ela precisa permitir que os resultados sejam verificados de forma independente.
 
 Este repositório fornece uma **arquitetura de projeto pronta para uso** que:
 1. **Padroniza** a organização de dados, scripts e documentos.
@@ -57,10 +57,10 @@ projeto-tcc/
 ├── pyproject.toml                     ← Configuração de dependências Python (uv)
 ├── Makefile                           ← Automação de tarefas
 │
-├── tex/                               ← Arquivos LaTeX (8 formatos)
+├── latex/                               ← Arquivos LaTeX (8 formatos)
 │   ├── tcc_artigo/                    ← Exemplo: TCC formato artigo
 │   │   ├── main.tex                   ← Texto com dicas pedagógicas
-│   │   ├── referencias.bib            
+│   │   ├── referencias.bib
 │   │   ├── figuras/                   ← Figuras geradas pela pipeline
 │   │   └── tabelas/                   ← Tabelas geradas pela pipeline
 │   └── ... (outros 7 formatos)
@@ -74,7 +74,7 @@ projeto-tcc/
     └── ... (até 06)
 ```
 
-Cada formato na pasta `tex/` é **completamente independente e autocontido**. Se você quer fazer uma dissertação, ignore/apague os outros 7 diretórios e trabalhe apenas dentro de `tex/dissertacao/`.
+Cada formato na pasta `latex/` é **completamente independente e autocontido**. Se você quer fazer uma dissertação, ignore/apague os outros 7 diretórios e trabalhe apenas dentro de `latex/dissertacao/`.
 
 ---
 
@@ -104,7 +104,7 @@ A pipeline inteira está automatizada. Ela vai do script `01` ao `06`, treinando
 ```bash
 make pipeline
 ```
-*Isso gerará os dados na pasta `dados/`, modelos em `modelos/`, e enviará automaticamente as figuras (.eps) e tabelas (.tex) para **todos** os 8 diretórios dentro de `tex/`.*
+*Isso gerará os dados na pasta `dados/`, modelos em `modelos/`, e enviará automaticamente as figuras (.eps) e tabelas (.tex) para **todos** os 8 diretórios dentro de `latex/`.*
 
 ### 4. Compilar o PDF (LaTeX)
 Para gerar o PDF do seu texto, use o comando:
@@ -112,17 +112,17 @@ Para gerar o PDF do seu texto, use o comando:
 ```bash
 make latex DOC=tcc_artigo  # Troque tcc_artigo pelo formato que desejar
 ```
-O PDF gerado estará dentro da pasta `tex/tcc_artigo/`.
+O PDF gerado estará dentro da pasta `latex/tcc_artigo/`.
 
 ---
 
 ## Como adaptar este repositório para o SEU projeto?
 
 1. **Escolha seu modelo**: Defina qual será o formato (ex: `dissertacao`).
-2. **Delete o que não for usar**: Apague as outras pastas de dentro do `tex/`.
+2. **Delete o que não for usar**: Apague as outras pastas de dentro do `latex/`.
 3. **Coloque seus dados**: Substitua os dados em `dados/brutos/` pelo seu dataset.
 4. **Altere os scripts**: Edite do `01` ao `06` em `scripts/` para aplicar *sua* análise e *seus* modelos.
-5. **Escreva seu texto**: Edite o `tex/sua_pasta/main.tex`, preencha os metadados (nome, título) e escreva. *Aproveite as dicas no ambiente `\begin{dica}`.*
+5. **Escreva seu texto**: Edite o `latex/sua_pasta/main.tex`, preencha os metadados (nome, título) e escreva. *Aproveite as dicas no ambiente `\begin{dica}`.*
 6. **Recompile**: Rode `make pipeline` e `make latex DOC=sua_pasta`.
 
 ---

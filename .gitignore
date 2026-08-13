@@ -42,6 +42,7 @@ notebooks/.ipynb_checkpoints/
 .ipynb_checkpoints/
 .ruff_cache
 .uv-data/
+.mypy_cache/
 
 # ── LaTeX (artefatos de compilação) ──────────────────────────
 *.aux
@@ -100,8 +101,8 @@ modelos/*.onnx
 
 # ── PDF gerado (regenerável via make latex) ──────────────────
 # ── EPS gerados (regeneráveis) ───────────────────────────────
-tex/*.pdf
-tex/*.png
-tex/*.eps
+latex/*.pdf
+latex/*.png
+latex/*.eps
 *.pdf
 *.eps

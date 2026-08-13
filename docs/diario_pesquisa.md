@@ -4,8 +4,8 @@
 
 ---
 
-**Projeto:** _Nome do seu projeto_  
-**Pesquisador(a):** _Seu nome_  
+**Projeto:** _Nome do seu projeto_
+**Pesquisador(a):** _Seu nome_
 **Período:** _Mês/Ano de início — presente_
 
 ---

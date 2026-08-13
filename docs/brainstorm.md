@@ -4,9 +4,9 @@
 
 ---
 
-**Tema:** _Ex: "Como melhorar a previsão de churn para clientes inativos?"_  
-**Data:** _AAAA-MM-DD_  
-**Participantes:** _Você, orientador, colegas..._  
+**Tema:** _Ex: "Como melhorar a previsão de churn para clientes inativos?"_
+**Data:** _AAAA-MM-DD_
+**Participantes:** _Você, orientador, colegas..._
 **Tempo:** _Ex: 30 minutos_
 
 ---

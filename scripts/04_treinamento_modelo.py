@@ -59,9 +59,11 @@ from sklearn.model_selection import StratifiedKFold, cross_validate
 # Gradient Boosting — usa LightGBM se disponível, senão sklearn
 try:
     from lightgbm import LGBMClassifier
+
     TEM_LIGHTGBM = True
 except ImportError:
     from sklearn.ensemble import GradientBoostingClassifier
+
     TEM_LIGHTGBM = False
 
 # ── Configurações ──────────────────────────────────────────────
@@ -136,7 +138,9 @@ def validacao_cruzada(modelos: dict, X, y) -> pd.DataFrame:
     for nome, modelo in modelos.items():
         print(f"Treinando: {nome}...")
         cv_results = cross_validate(
-            modelo, X, y,
+            modelo,
+            X,
+            y,
             cv=cv,
             scoring=scoring,
             return_train_score=False,

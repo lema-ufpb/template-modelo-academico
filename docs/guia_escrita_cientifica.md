@@ -300,7 +300,7 @@ Conforme \citeonline{hastie2009}, modelos de ensemble superam classificadores in
 No corpo do texto, entre aspas, com indicação de página.
 
 ```latex
-Segundo \citeonline{hastie2009}, ``a escolha do modelo deve considerar 
+Segundo \citeonline{hastie2009}, ``a escolha do modelo deve considerar
 o trade-off entre viés e variância'' \cite[p.~37]{hastie2009}.
 ```
 
@@ -309,9 +309,9 @@ Recuada 4cm, fonte menor, sem aspas, com indicação de página.
 
 ```latex
 \begin{citacao}
-A reprodutibilidade é um pilar fundamental da ciência moderna. 
-Um resultado que não pode ser verificado independentemente 
-não pode ser considerado conhecimento científico estabelecido 
+A reprodutibilidade é um pilar fundamental da ciência moderna.
+Um resultado que não pode ser verificado independentemente
+não pode ser considerado conhecimento científico estabelecido
 \cite[p.~15]{lima2024}.
 \end{citacao}
 ```

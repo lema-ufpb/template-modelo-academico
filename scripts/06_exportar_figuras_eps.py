@@ -7,7 +7,7 @@ Este script converte todas as figuras PNG geradas na pasta
 resultados/figuras/ para o formato vetorial EPS, utilizado em
 documentos LaTeX de alta qualidade tipográfica.
 
-As figuras são salvas em cada diretório tex/<doc>/figuras/ para
+As figuras são salvas em cada diretório latex/<doc>/figuras/ para
 que cada documento tenha suas próprias cópias.
 
 Uso:
@@ -17,7 +17,7 @@ Entradas:
     resultados/figuras/*.png
 
 Saídas:
-    tex/<doc>/figuras/*.eps                      (cada documento)
+    latex/<doc>/figuras/*.eps                      (cada documento)
 
 Como adaptar para seu projeto:
     Este script geralmente NÃO precisa de modificação. Ele detecta
@@ -47,7 +47,7 @@ DOC_TYPES = ["tcc_artigo", "tcc", "artigo", "dissertacao", "tese", "livro", "rel
 
 
 def _distribuir_para_docs(nome_arquivo: str, dir_origem: str):
-    """Copia um arquivo EPS para cada diretório tex/<doc>/figuras/."""
+    """Copia um arquivo EPS para cada diretório latex/<doc>/figuras/."""
     for doc in DOC_TYPES:
         dir_destino = os.path.join("tex", doc, "figuras")
         os.makedirs(dir_destino, exist_ok=True)
@@ -93,22 +93,26 @@ def gerar_diagrama_pipeline():
 
     for i, (texto, cor) in enumerate(etapas):
         x = i * 2.5
-        rect = plt.Rectangle((x, 0.5), 2, 2, linewidth=2,
-                              edgecolor=cor, facecolor=cor, alpha=0.2,
-                              joinstyle="round")
+        rect = plt.Rectangle(
+            (x, 0.5), 2, 2, linewidth=2, edgecolor=cor, facecolor=cor, alpha=0.2, joinstyle="round"
+        )
         ax.add_patch(rect)
-        ax.text(x + 1, 1.5, texto, ha="center", va="center",
-                fontsize=11, fontweight="bold", color=cor)
+        ax.text(
+            x + 1, 1.5, texto, ha="center", va="center", fontsize=11, fontweight="bold", color=cor
+        )
 
         if i < len(etapas) - 1:
-            ax.annotate("", xy=(x + 2.5, 1.5), xytext=(x + 2, 1.5),
-                        arrowprops=dict(arrowstyle="->", lw=2, color="#555"))
+            ax.annotate(
+                "",
+                xy=(x + 2.5, 1.5),
+                xytext=(x + 2, 1.5),
+                arrowprops=dict(arrowstyle="->", lw=2, color="#555"),
+            )
 
     ax.set_xlim(-0.3, 12.5)
     ax.set_ylim(0, 3.5)
     ax.axis("off")
-    ax.set_title("Pipeline Metodológico — Ciência de Dados",
-                 fontsize=14, fontweight="bold", pad=20)
+    ax.set_title("Pipeline Metodológico — Ciência de Dados", fontsize=14, fontweight="bold", pad=20)
 
     # Salvar PNG
     caminho_png = os.path.join(DIR_FIGURAS_PNG, "pipeline_metodologico.png")
@@ -155,7 +159,7 @@ def main():
         _distribuir_para_docs(f"{nome_base}.eps", DIR_FIGURAS_PNG)
 
     print(f"\n✓ {len(pngs)} figuras exportadas para EPS com sucesso!")
-    print(f"✓ Arquivos EPS disponíveis em cada tex/<doc>/figuras/")
+    print("✓ Arquivos EPS disponíveis em cada latex/<doc>/figuras/")
     print("=" * 60)
 
 

@@ -46,13 +46,15 @@ CAMINHO_DADOS = os.path.join("dados", "brutos", "dataset_clientes.csv")
 DIR_FIGURAS = os.path.join("resultados", "figuras")
 DIR_METRICAS = os.path.join("resultados", "metricas")
 
-plt.rcParams.update({
-    "figure.dpi": 150,
-    "figure.figsize": (12, 8),
-    "font.size": 11,
-    "axes.titlesize": 13,
-    "axes.labelsize": 11,
-})
+plt.rcParams.update(
+    {
+        "figure.dpi": 150,
+        "figure.figsize": (12, 8),
+        "font.size": 11,
+        "axes.titlesize": 13,
+        "axes.labelsize": 11,
+    }
+)
 sns.set_theme(style="whitegrid", palette="muted")
 
 
@@ -66,16 +68,31 @@ def carregar_dados() -> pd.DataFrame:
 
 def estatisticas_descritivas(df: pd.DataFrame) -> pd.DataFrame:
     """Calcula e salva estatísticas descritivas das variáveis numéricas."""
-    colunas_num = ["idade", "renda_mensal", "tempo_conta_meses",
-                   "num_produtos", "saldo", "num_reclamacoes", "satisfacao"]
+    colunas_num = [
+        "idade",
+        "renda_mensal",
+        "tempo_conta_meses",
+        "num_produtos",
+        "saldo",
+        "num_reclamacoes",
+        "satisfacao",
+    ]
 
     stats = df[colunas_num].describe().T
     stats["mediana"] = df[colunas_num].median()
     stats["cv"] = (stats["std"] / stats["mean"] * 100).round(2)  # coef. variação
     stats = stats[["count", "mean", "mediana", "std", "min", "25%", "50%", "75%", "max", "cv"]]
     stats.columns = [
-        "n", "média", "mediana", "desvio_padrão",
-        "mín", "Q1", "Q2", "Q3", "máx", "CV(%)",
+        "n",
+        "média",
+        "mediana",
+        "desvio_padrão",
+        "mín",
+        "Q1",
+        "Q2",
+        "Q3",
+        "máx",
+        "CV(%)",
     ]
 
     caminho = os.path.join(DIR_METRICAS, "estatisticas_descritivas.csv")
@@ -88,8 +105,14 @@ def estatisticas_descritivas(df: pd.DataFrame) -> pd.DataFrame:
 
 def plotar_distribuicoes(df: pd.DataFrame):
     """Gera histogramas das variáveis numéricas segmentados por churn."""
-    colunas = ["idade", "renda_mensal", "tempo_conta_meses", "saldo",
-               "num_reclamacoes", "satisfacao"]
+    colunas = [
+        "idade",
+        "renda_mensal",
+        "tempo_conta_meses",
+        "saldo",
+        "num_reclamacoes",
+        "satisfacao",
+    ]
 
     fig, axes = plt.subplots(2, 3, figsize=(15, 10))
     fig.suptitle("Distribuição das Variáveis por Status de Churn", fontsize=14, fontweight="bold")
@@ -103,7 +126,7 @@ def plotar_distribuicoes(df: pd.DataFrame):
         ax.set_ylabel("Frequência")
         ax.legend(fontsize=9)
 
-    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.tight_layout(rect=(0.0, 0.0, 1.0, 0.95))
 
     caminho = os.path.join(DIR_FIGURAS, "distribuicao_features.png")
     fig.savefig(caminho, dpi=150, bbox_inches="tight")
@@ -113,7 +136,7 @@ def plotar_distribuicoes(df: pd.DataFrame):
 
 def plotar_correlacao(df: pd.DataFrame):
     """Gera heatmap de correlação das variáveis numéricas."""
-    colunas_num = df.select_dtypes(include=[np.number]).columns.tolist()
+    colunas_num = df.select_dtypes(include="number").columns.tolist()
     colunas_num = [c for c in colunas_num if c != "id_cliente"]
 
     corr = df[colunas_num].corr()
@@ -122,7 +145,7 @@ def plotar_correlacao(df: pd.DataFrame):
     mask = np.triu(np.ones_like(corr, dtype=bool))
     sns.heatmap(
         corr,
-        mask=mask,
+        mask=mask,  # type: ignore
         annot=True,
         fmt=".2f",
         cmap="RdBu_r",
@@ -157,10 +180,15 @@ def plotar_churn_por_categoria(df: pd.DataFrame):
         ax.set_ylabel("Taxa de Churn")
         ax.set_ylim(0, 1)
         for bar, val in zip(bars, taxa.values):
-            ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.02,
-                    f"{val:.1%}", ha="center", fontsize=9)
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                bar.get_height() + 0.02,
+                f"{val:.1%}",
+                ha="center",
+                fontsize=9,
+            )
 
-    plt.tight_layout(rect=[0, 0, 1, 0.93])
+    plt.tight_layout(rect=(0.0, 0.0, 1.0, 0.93))
     caminho = os.path.join(DIR_FIGURAS, "churn_por_categoria.png")
     fig.savefig(caminho, dpi=150, bbox_inches="tight")
     plt.close(fig)

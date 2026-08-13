@@ -19,10 +19,10 @@ Saídas:
     resultados/metricas/matriz_confusao.csv
     resultados/figuras/curva_roc.png
     resultados/figuras/importancia_features.png
-    tex/<doc>/tabelas/tab_comparacao_modelos.tex    (cada documento)
-    tex/<doc>/tabelas/tab_coeficientes_modelo.tex   (cada documento)
-    tex/<doc>/tabelas/tab_matriz_confusao.tex       (cada documento)
-    tex/<doc>/tabelas/tab_estatisticas_descritivas.tex (cada documento)
+    latex/<doc>/tabelas/tab_comparacao_modelos.tex    (cada documento)
+    latex/<doc>/tabelas/tab_coeficientes_modelo.tex   (cada documento)
+    latex/<doc>/tabelas/tab_matriz_confusao.tex       (cada documento)
+    latex/<doc>/tabelas/tab_estatisticas_descritivas.tex (cada documento)
 
 Como adaptar para seu projeto:
     1. Ajuste as métricas em `avaliar_modelos()` conforme seu problema:
@@ -34,7 +34,7 @@ Como adaptar para seu projeto:
        por gráficos de resíduos ou previsão vs. real.
 
     3. As funções `gerar_tabela_latex_*()` produzem tabelas LaTeX
-       que são salvas em TODOS os diretórios tex/<doc>/tabelas/.
+       que são salvas em TODOS os diretórios latex/<doc>/tabelas/.
        Se você adicionar um novo tipo de documento, basta adicioná-lo
        à lista DOC_TYPES no topo do script.
 
@@ -137,8 +137,8 @@ def plotar_curva_roc(modelos: dict, X, y):
     ax.set_ylabel("Taxa de Verdadeiros Positivos (TPR)")
     ax.set_title("Curva ROC — Comparação de Modelos", fontsize=14, fontweight="bold")
     ax.legend(loc="lower right", fontsize=10)
-    ax.set_xlim([0, 1])
-    ax.set_ylim([0, 1.02])
+    ax.set_xlim((0.0, 1.0))
+    ax.set_ylim((0.0, 1.02))
     ax.grid(True, alpha=0.3)
 
     caminho = os.path.join(DIR_FIGURAS, "curva_roc.png")
@@ -168,13 +168,14 @@ def plotar_importancia_features(modelos: dict, X):
     top = importancias.tail(15)
 
     fig, ax = plt.subplots(figsize=(10, 7))
-    bars = ax.barh(top.index, top.values, color="#3498db", edgecolor="white")
+    bars = ax.barh(top.index.tolist(), top.tolist(), color="#3498db", edgecolor="white")
     ax.set_xlabel("Importância")
     ax.set_title(f"Top 15 Features — {nome_arvore}", fontsize=14, fontweight="bold")
 
-    for bar, val in zip(bars, top.values):
-        ax.text(val + 0.002, bar.get_y() + bar.get_height() / 2,
-                f"{val:.3f}", va="center", fontsize=9)
+    for bar, val in zip(bars, top.tolist()):
+        ax.text(
+            val + 0.002, bar.get_y() + bar.get_height() / 2, f"{val:.3f}", va="center", fontsize=9
+        )
 
     plt.tight_layout()
     caminho = os.path.join(DIR_FIGURAS, "importancia_features.png")
@@ -234,10 +235,12 @@ def gerar_tabela_latex_coeficientes(modelos: dict, X) -> str | None:
         print("⚠ Nenhum modelo com coeficientes encontrado.")
         return None
 
-    coefs = pd.DataFrame({
-        "Variável": X.columns,
-        "Coeficiente (β)": modelo_lr.coef_[0],
-    }).sort_values("Coeficiente (β)", key=abs, ascending=False)
+    coefs = pd.DataFrame(
+        {
+            "Variável": X.columns,
+            "Coeficiente (β)": modelo_lr.coef_[0],
+        }
+    ).sort_values("Coeficiente (β)", key=abs, ascending=False)
 
     caminho_csv = os.path.join(DIR_METRICAS, "coeficientes_regressao.csv")
     coefs.to_csv(caminho_csv, index=False, encoding="utf-8")
@@ -279,12 +282,16 @@ def gerar_tabela_latex_confusao(modelos: dict, X, y) -> str:
         if auc > melhor_auc:
             melhor_nome, melhor_modelo, melhor_auc = nome, modelo, auc
 
+    if melhor_modelo is None:
+        return ""
+
     y_pred = melhor_modelo.predict(X)
     cm = confusion_matrix(y, y_pred)
     tn, fp, fn, tp = cm.ravel()
 
-    df_cm = pd.DataFrame(cm, index=["Real: Não-Churn", "Real: Churn"],
-                         columns=["Pred: Não-Churn", "Pred: Churn"])
+    df_cm = pd.DataFrame(
+        cm, index=["Real: Não-Churn", "Real: Churn"], columns=["Pred: Não-Churn", "Pred: Churn"]
+    )
     caminho_csv = os.path.join(DIR_METRICAS, "matriz_confusao.csv")
     df_cm.to_csv(caminho_csv, encoding="utf-8")
 
@@ -327,12 +334,19 @@ def gerar_tabela_dicionario_dados() -> str:
     linhas.append(r"\texttt{idade} & Inteiro & Idade do cliente em anos & 18--70 \\")
     linhas.append(r"\texttt{sexo} & Categórico & Sexo biológico (M/F) & M, F \\")
     linhas.append(r"\texttt{renda\_mensal} & Contínuo & Renda mensal em R\$ & 2.500--15.000 \\")
-    linhas.append(r"\texttt{tempo\_conta\_meses} & Inteiro & Tempo como cliente (meses) & 1--120 \\")
-    linhas.append(r"\texttt{num\_produtos} & Inteiro & Quantidade de produtos contratados & 1--4 \\")
+    linhas.append(
+        r"\texttt{tempo\_conta\_meses} & Inteiro & Tempo como cliente (meses) & 1--120 \\"
+    )
+    linhas.append(
+        r"\texttt{num\_produtos} & Inteiro & Quantidade de produtos contratados & 1--4 \\"
+    )
     linhas.append(r"\texttt{tem\_credito} & Binário & Possui crédito especial (0/1) & 0, 1 \\")
     linhas.append(r"\texttt{saldo} & Contínuo & Saldo médio em conta (R\$) & 0--250.000 \\")
     linhas.append(r"\texttt{ativo} & Binário & Cliente está ativo (0/1) & 0, 1 \\")
-    linhas.append(r"\texttt{canal\_aquisicao} & Categórico & Canal de aquisição do cliente & Loja Física, Online \\")
+    linhas.append(
+        r"\texttt{canal\_aquisicao} & Categórico & Canal de aquisição do cliente "
+        r"& Loja Física, Online \\"
+    )
     linhas.append(r"\texttt{num\_reclamacoes} & Inteiro & Número de reclamações abertas & 0--5 \\")
     linhas.append(r"\texttt{satisfacao} & Ordinal & Nível de satisfação (1--5) & 1, 2, 3, 4, 5 \\")
     linhas.append(r"\texttt{churn} & Binário & Evadiu-se? (target: 0/1) & 0, 1 \\")
@@ -347,8 +361,15 @@ def gerar_tabela_dicionario_dados() -> str:
 def gerar_tabela_latex_descritivas() -> str:
     """Gera tabela LaTeX com estatísticas descritivas do dataset bruto."""
     df = pd.read_csv(CAMINHO_BRUTO)
-    colunas_num = ["idade", "renda_mensal", "tempo_conta_meses",
-                   "num_produtos", "saldo", "num_reclamacoes", "satisfacao"]
+    colunas_num = [
+        "idade",
+        "renda_mensal",
+        "tempo_conta_meses",
+        "num_produtos",
+        "saldo",
+        "num_reclamacoes",
+        "satisfacao",
+    ]
 
     stats = df[colunas_num].agg(["count", "mean", "median", "std", "min", "max"]).T
     stats.columns = ["n", "Média", "Mediana", "Desvio Padrão", "Mín", "Máx"]
@@ -371,7 +392,7 @@ def gerar_tabela_latex_descritivas() -> str:
     linhas.append(r"\midrule")
 
     for var, row in stats.iterrows():
-        var_fmt = var.replace("_", r"\_")
+        var_fmt = str(var).replace("_", r"\_")
         linhas.append(
             f"{var_fmt} & {int(row['n'])} & {row['Média']:.2f} & {row['Mediana']:.2f} "
             f"& {row['Desvio Padrão']:.2f} & {row['Mín']:.2f} & {row['Máx']:.2f} \\\\"

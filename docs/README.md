@@ -2,7 +2,7 @@
 
 > **Templates prontos para organizar seu trabalho acadêmico do início ao fim.**
 
-Este diretório contém modelos em Markdown que você pode copiar e preencher ao longo do seu projeto de pesquisa. Eles complementam os templates LaTeX em `tex/` e os scripts em `scripts/`, cobrindo o **lado organizacional** do trabalho acadêmico: anotações, planejamento, fichamentos e preparação para defesa.
+Este diretório contém modelos em Markdown que você pode copiar e preencher ao longo do seu projeto de pesquisa. Eles complementam os templates LaTeX em `latex/` e os scripts em `scripts/`, cobrindo o **lado organizacional** do trabalho acadêmico: anotações, planejamento, fichamentos e preparação para defesa.
 
 ---
 

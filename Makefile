@@ -26,7 +26,7 @@ RESET   := $(shell printf '\033[0m')
 DOC     ?= tcc_artigo
 PYTHON  := uv run python
 SCRIPTS := scripts
-TEX_DIR := tex
+TEX_DIR := latex
 
 # =============================================================================
 #  🆘  Ajuda
@@ -134,7 +134,7 @@ exportar: ## 🖼️   06 — Exporta figuras para EPS
 	@echo ""
 	@echo "  $(BOLD)$(MAGENTA)🖼️   Etapa 06 · Convertendo figuras para EPS vetorial...$(RESET)"
 	$(PYTHON) $(SCRIPTS)/06_exportar_figuras_eps.py
-	@echo "  $(GREEN)✅  Figuras EPS prontas em cada tex/<doc>/figuras/$(RESET)"
+	@echo "  $(GREEN)✅  Figuras EPS prontas em cada latex/<doc>/figuras/$(RESET)"
 	@echo ""
 
 # =============================================================================
@@ -195,7 +195,7 @@ latex-clean-all: ## 🧹  Remove artefatos de todos os documentos
 # =============================================================================
 
 .PHONY: list-docs
-list-docs: ## 📂  Lista os tipos de documento disponíveis em tex/
+list-docs: ## 📂  Lista os tipos de documento disponíveis em latex/
 	@echo ""
 	@echo "  $(BOLD)$(CYAN)📂  Tipos de Documento Disponíveis$(RESET)"
 	@echo "  $(CYAN)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$(RESET)"
@@ -231,7 +231,7 @@ new-doc: ## ✨  Cria um novo tipo de documento — use TYPE=nome
 	cp $(TEX_DIR)/tcc_artigo/main.tex $(TEX_DIR)/$(TYPE)/main.tex; \
 	echo ""; \
 	echo "  $(GREEN)✅  Tipo '$(TYPE)' criado em $(TEX_DIR)/$(TYPE)/$(RESET)"; \
-	echo "  $(YELLOW)📝  Edite:$(RESET) tex/$(TYPE)/main.tex"; \
+	echo "  $(YELLOW)📝  Edite:$(RESET) latex/$(TYPE)/main.tex"; \
 	echo "  $(YELLOW)▶️   Compile:$(RESET) make latex DOC=$(TYPE)"; \
 	echo ""
 

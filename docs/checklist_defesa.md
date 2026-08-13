@@ -4,8 +4,8 @@
 
 ---
 
-**Tipo de documento:** ☐ TCC Artigo · ☐ TCC Monografia · ☐ Dissertação · ☐ Tese · ☐ Outro: ___  
-**Data da entrega/defesa:** _DD/MM/AAAA_  
+**Tipo de documento:** ☐ TCC Artigo · ☐ TCC Monografia · ☐ Dissertação · ☐ Tese · ☐ Outro: ___
+**Data da entrega/defesa:** _DD/MM/AAAA_
 **Data desta revisão:** _DD/MM/AAAA_
 
 ---
@@ -95,7 +95,7 @@
 - [ ] `make latex DOC=<tipo>` compila o PDF sem erros
 - [ ] Seed fixa em todos os scripts (`SEED = 42`)
 - [ ] Dados brutos estão disponíveis (no repositório ou com link de download)
-- [ ] `pyproject.toml` / `requirements.txt` atualizado com todas as dependências
+- [ ] `pyproject.toml` atualizado com todas as dependências
 - [ ] `.gitignore` exclui artefatos regeneráveis
 - [ ] Repositório Git limpo (sem arquivos temporários)
 - [ ] README.md atualizado com instruções de execução

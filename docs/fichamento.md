@@ -10,10 +10,10 @@ _Cole aqui a referência formatada em ABNT. Exemplo:_
 
 > HASTIE, T.; TIBSHIRANI, R.; FRIEDMAN, J. **The Elements of Statistical Learning**: Data Mining, Inference, and Prediction. 2. ed. New York: Springer, 2009.
 
-**Chave BibTeX:** `hastie2009`  
-**Tipo:** ☐ Artigo de periódico · ☐ Artigo de conferência · ☐ Livro · ☐ Capítulo de livro · ☐ Tese/Dissertação · ☐ Outro  
-**Ano:** _2009_  
-**DOI/URL:** _https://doi.org/..._  
+**Chave BibTeX:** `hastie2009`
+**Tipo:** ☐ Artigo de periódico · ☐ Artigo de conferência · ☐ Livro · ☐ Capítulo de livro · ☐ Tese/Dissertação · ☐ Outro
+**Ano:** _2009_
+**DOI/URL:** _https://doi.org/..._
 **Data da leitura:** _DD/MM/AAAA_
 
 ---
