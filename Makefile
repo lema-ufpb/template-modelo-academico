@@ -255,7 +255,7 @@ notebook: ## 📓  Inicia o Jupyter Notebook
 lint: ## 🔎  Verifica estilo do código (ruff check)
 	@echo ""
 	@echo "  $(BOLD)$(CYAN)🔎  Analisando estilo do código...$(RESET)"
-	uv run ruff check $(SCRIPTS)/
+	uv run ruff check $(SCRIPTS)/ tests/
 	@echo "  $(GREEN)✅  Código aprovado pelo linter!$(RESET)"
 	@echo ""
 
@@ -263,9 +263,17 @@ lint: ## 🔎  Verifica estilo do código (ruff check)
 format: ## ✨  Formata o código automaticamente (ruff format)
 	@echo ""
 	@echo "  $(BOLD)$(CYAN)✨  Formatando código...$(RESET)"
-	uv run ruff format $(SCRIPTS)/
-	uv run ruff check --fix $(SCRIPTS)/
+	uv run ruff format $(SCRIPTS)/ tests/
+	uv run ruff check --fix $(SCRIPTS)/ tests/
 	@echo "  $(GREEN)✅  Código formatado com estilo!$(RESET)"
+	@echo ""
+
+.PHONY: typecheck
+typecheck: ## 🏷️   Verifica tipagem estática (mypy)
+	@echo ""
+	@echo "  $(BOLD)$(CYAN)🏷️   Verificando tipagem...$(RESET)"
+	uv run mypy $(SCRIPTS)/
+	@echo "  $(GREEN)✅  Tipagem validada!$(RESET)"
 	@echo ""
 
 .PHONY: test
@@ -273,6 +281,12 @@ test: ## 🧪  Executa testes (pytest)
 	@echo ""
 	@echo "  $(BOLD)$(CYAN)🧪  Executando testes...$(RESET)"
 	uv run pytest -v
+	@echo ""
+
+.PHONY: check
+check: lint typecheck test ## 🚥  Roda todas as verificações do CI localmente
+	@echo ""
+	@echo "  $(BOLD)$(GREEN)🚥  Todas as verificações (CI) passaram!$(RESET)"
 	@echo ""
 
 # =============================================================================

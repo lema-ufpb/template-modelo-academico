@@ -133,6 +133,9 @@ O PDF gerado estará dentro da pasta `latex/tcc_artigo/`.
 |---------|-----------|
 | `make pipeline` | Executa todos os scripts Python (01 ao 06) sequencialmente. |
 | `make latex DOC=x`| Compila o documento `x` (ex: `DOC=artigo`). |
+| `make check` | Roda as mesmas verificações do CI localmente (lint, typecheck e testes). |
+| `make typecheck` | Verifica a tipagem estática do código em Python (`mypy`). |
+| `make test` | Executa a suíte completa de testes (`pytest`). |
 | `make clean` | Apaga caches temporários, \_\_pycache\_\_, modelos. |
 | `make latex-clean`| Apaga os arquivos auxiliares pesados do LaTeX. |
 
