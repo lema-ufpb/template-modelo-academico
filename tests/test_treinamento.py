@@ -90,9 +90,9 @@ class TestDefinirModelos:
         """Regressão Logística e Random Forest são sempre esperados."""
         modelos = definir_modelos()
         nomes = list(modelos.keys())
-        assert any(
-            "Logística" in n or "Logistica" in n for n in nomes
-        ), "Regressão Logística não encontrada"
+        assert any("Logística" in n or "Logistica" in n for n in nomes), (
+            "Regressão Logística não encontrada"
+        )
         assert any("Random" in n for n in nomes), "Random Forest não encontrado"
 
     def test_modelos_sao_distintos(self):

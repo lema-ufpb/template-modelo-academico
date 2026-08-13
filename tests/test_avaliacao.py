@@ -122,9 +122,9 @@ class TestGerartabelaDicionarioDados:
     def test_contem_todas_as_variaveis(self, variavel):
         result = gerar_tabela_dicionario_dados()
         # LaTeX escapa underscores com \_
-        assert (
-            variavel.replace("_", r"\_") in result
-        ), f"Variável '{variavel}' não encontrada no dicionário de dados"
+        assert variavel.replace("_", r"\_") in result, (
+            f"Variável '{variavel}' não encontrada no dicionário de dados"
+        )
 
     def test_label_presente(self):
         result = gerar_tabela_dicionario_dados()
