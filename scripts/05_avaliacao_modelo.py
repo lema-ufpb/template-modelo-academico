@@ -49,6 +49,7 @@ Como adaptar para seu projeto:
 """
 
 import os
+from typing import Optional
 
 import joblib
 import matplotlib.pyplot as plt
@@ -223,7 +224,7 @@ def gerar_tabela_latex_modelos(df_metricas: pd.DataFrame) -> str:
     return "\n".join(linhas)
 
 
-def gerar_tabela_latex_coeficientes(modelos: dict, X) -> str | None:
+def gerar_tabela_latex_coeficientes(modelos: dict, X) -> Optional[str]:
     """Gera tabela LaTeX com coeficientes da Regressão Logística."""
     modelo_lr = None
     for nome, modelo in modelos.items():
