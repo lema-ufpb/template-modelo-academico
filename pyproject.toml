@@ -10,7 +10,7 @@ version = "2.0.0"
 description = "Repositório-modelo multi-propósito para trabalhos acadêmicos — TCC (artigo/monografia), artigo, dissertação, tese — pipeline reprodutível com LaTeX e Python"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.9"
+requires-python = ">=3.14"
 authors = [
     { name = "Seu Nome", email = "seu.email@academico.ufpb.br" },
 ]
@@ -56,7 +56,7 @@ dev = [
 
 # ── Ferramentas ──────────────────────────────────────────────────────────────
 [tool.ruff]
-target-version = "py39"
+target-version = "py314"
 line-length = 100
 
 [tool.ruff.lint]
