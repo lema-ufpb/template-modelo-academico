@@ -82,7 +82,7 @@ Cada formato na pasta `latex/` é **completamente independente e autocontido**. 
 
 ### 1. Requisitos do Sistema
 - **Make**: (Já vem no Mac/Linux. No Windows, use WSL ou Git Bash).
-- **Python 3.9+**: Usamos o `uv` para instalar dependências.
+- **Python 3.14+**: Usamos o `uv` para instalar dependências.
 - **LaTeX**: Necessário para gerar os PDFs.
   - Mac: `brew install --cask mactex`
   - Linux: `sudo apt install texlive-full`
