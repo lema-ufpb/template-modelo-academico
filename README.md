@@ -1,4 +1,4 @@
-# Repositório-Modelo para Trabalhos Acadêmicos
+# 🎓 Repositório-Modelo para Trabalhos Acadêmicos
 
 > **Template multi-propósito para trabalhos acadêmicos da UFPB/CCSA: aplicável a áreas como Ciência de Dados, Economia e afins.**
 
@@ -6,21 +6,21 @@ Este repositório serve como modelo de referência para estudantes do **Centro d
 
 ---
 
-## O que é este projeto?
+## 💡 O que é este projeto?
 
 Fazer ciência não é apenas apresentar números ou publicar um documento. Um trabalho científico se baseia em princípios fundamentais de **transparência, ética, honestidade intelectual e curiosidade**.
 
 Para que uma pesquisa tenha validade e seja útil para a comunidade (colegas, professores e outros cientistas), ela precisa permitir que os resultados sejam verificados de forma independente.
 
 Este repositório fornece uma **arquitetura de projeto pronta para uso** que:
-1. **Padroniza** a organização de dados, scripts e documentos.
-2. **Automatiza** a geração de figuras e tabelas diretamente para o texto.
-3. **Oferece** 8 templates LaTeX diferentes (TCC, Artigo, Dissertação, Tese, Livro, Relatório e Projeto), já configurados nas normas ABNT.
-4. **Ensina** por meio de dicas pedagógicas inseridas dentro dos próprios arquivos LaTeX (`\begin{dica}`).
+1. 📁 **Padroniza** a organização de dados, scripts e documentos.
+2. ⚙️ **Automatiza** a geração de figuras e tabelas diretamente para o texto.
+3. 📚 **Oferece** 8 templates LaTeX diferentes (TCC, Artigo, Dissertação, Tese, Livro, Relatório e Projeto), já configurados nas normas ABNT.
+4. 🧑‍🏫 **Ensina** por meio de dicas pedagógicas inseridas dentro dos próprios arquivos LaTeX (`\begin{dica}`).
 
 ---
 
-## Tipos de Documento Suportados
+## 📄 Tipos de Documento Suportados
 
 | Tipo | Descrição | Classe LaTeX | Estrutura |
 |------|-----------|-------------|-----------|
@@ -35,7 +35,7 @@ Este repositório fornece uma **arquitetura de projeto pronta para uso** que:
 
 ---
 
-## Artefatos e Planejamento (`docs/`)
+## 🗂️ Artefatos e Planejamento (`docs/`)
 
 Este repositório também inclui modelos markdown em `docs/` para auxiliar na gestão do projeto de pesquisa no dia a dia. Alguns dos mais importantes são:
 
@@ -48,7 +48,7 @@ Este repositório também inclui modelos markdown em `docs/` para auxiliar na ge
 
 ---
 
-## Estrutura do Repositório
+## 🌳 Estrutura do Repositório
 
 ```text
 projeto-tcc/
@@ -78,9 +78,9 @@ Cada formato na pasta `latex/` é **completamente independente e autocontido**. 
 
 ---
 
-## Como Usar (Guia Passo a Passo)
+## 🚀 Como Usar (Guia Passo a Passo)
 
-### 1. Requisitos do Sistema
+### 1️⃣ Requisitos do Sistema
 - **Make**: (Já vem no Mac/Linux. No Windows, use WSL ou Git Bash).
 - **Python 3.14+**: Usamos o `uv` para instalar dependências.
 - **LaTeX**: Necessário para gerar os PDFs.
@@ -88,7 +88,7 @@ Cada formato na pasta `latex/` é **completamente independente e autocontido**. 
   - Linux: `sudo apt install texlive-full`
   - Windows: Baixe o [MiKTeX](https://miktex.org/download)
 
-### 2. Configurar o Ambiente Python
+### 2️⃣ Configurar o Ambiente Python
 Nós recomendamos fortemente o gerenciador de pacotes **uv** por ser ultrarrápido.
 Se não tiver, instale-o (`curl -LsSf https://astral.sh/uv/install.sh | sh` no Mac/Linux).
 
@@ -98,7 +98,7 @@ uv sync
 ```
 *Isto instalará Pandas, Scikit-Learn, LightGBM, Matplotlib, etc.*
 
-### 3. Executar a Pipeline de Dados
+### 3️⃣ Executar a Pipeline de Dados
 A pipeline inteira está automatizada. Ela vai do script `01` ao `06`, treinando modelos e exportando resultados.
 
 ```bash
@@ -106,7 +106,7 @@ make pipeline
 ```
 *Isso gerará os dados na pasta `dados/`, modelos em `modelos/`, e enviará automaticamente as figuras (.eps) e tabelas (.tex) para **todos** os 8 diretórios dentro de `latex/`.*
 
-### 4. Compilar o PDF (LaTeX)
+### 4️⃣ Compilar o PDF (LaTeX)
 Para gerar o PDF do seu texto, use o comando:
 
 ```bash
@@ -116,7 +116,7 @@ O PDF gerado estará dentro da pasta `latex/tcc_artigo/`.
 
 ---
 
-## Como adaptar este repositório para o SEU projeto?
+## 🔧 Como adaptar este repositório para o SEU projeto?
 
 1. **Escolha seu modelo**: Defina qual será o formato (ex: `dissertacao`).
 2. **Delete o que não for usar**: Apague as outras pastas de dentro do `latex/`.
@@ -127,7 +127,7 @@ O PDF gerado estará dentro da pasta `latex/tcc_artigo/`.
 
 ---
 
-## Comandos Úteis do Makefile
+## 🛠️ Comandos Úteis do Makefile
 
 | Comando | Descrição |
 |---------|-----------|
@@ -141,4 +141,17 @@ O PDF gerado estará dentro da pasta `latex/tcc_artigo/`.
 
 ---
 
-Este projeto nasceu para promover a Ciência Aberta e a Reprodutibilidade na pesquisa acadêmica brasileira.
+## 🤝 Como Contribuir
+
+Este projeto é mantido pela e para a comunidade acadêmica, e toda contribuição é bem-vinda: correções de bugs, melhorias no pipeline de dados, novos templates LaTeX ou aprimoramentos na documentação.
+
+Formas rápidas de ajudar:
+- 🐛 **Encontrou um bug?** Abra uma [Issue](https://github.com/lema-ufpb/modelo-academico/issues) descrevendo o problema (inclua logs de erro, se houver).
+- 💡 **Tem uma ideia de melhoria?** Abra uma Issue explicando a sugestão antes de começar a codificar.
+- 🔀 **Quer enviar código?** Faça um fork, crie uma branch (`git checkout -b feature/minha-melhoria`), siga as boas práticas do projeto (`make format`, `make lint`, `make test`) e abra um Pull Request.
+
+Todos os detalhes — convenções de commit, padrões de código Python/LaTeX e o passo a passo completo — estão em [**CONTRIBUTING.md**](CONTRIBUTING.md). 📖
+
+---
+
+Este projeto nasceu para promover a 🌍 Ciência Aberta e a Reprodutibilidade na pesquisa acadêmica brasileira.
