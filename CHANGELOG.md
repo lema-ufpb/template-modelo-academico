@@ -5,6 +5,17 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [2.1.1] — 2026-08-18
+
+### Corrigido
+- **README.md:** tabela "Tipos de Documento Suportados" trocava "capítulos" por "seções" na coluna Estrutura para `tcc`, `dissertacao`, `tese` e `livro`, conforme a divisão em seções prevista na NBR 14724.
+- **`docs/diario_pesquisa.md`:** corrigido "sessão de trabalho" para "seção de trabalho" nas instruções de uso.
+
+### Adicionado
+- **`docs/guia_escrita_cientifica.md`:**
+  - Subseção "Verbos para Objetivo Geral e Objetivos Específicos" (seção 4), com exemplos de verbos por nível.
+  - Nova seção "9. Formatação ABNT: Títulos, Ilustrações e Documentos Complementares", cobrindo maiúsculas em títulos, ausência de ponto final em títulos, numeração/título/fonte obrigatórios em ilustrações, diferença entre tabela e quadro, título de tabela segundo a norma do IBGE, apresentação de valores monetários (nacionais e estrangeiros) e diferença entre Anexo e Apêndice.
+
 ## [2.1.0] — 2026-06-07
 
 ### Adicionado

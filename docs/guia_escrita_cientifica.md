@@ -14,6 +14,7 @@
 6. [Citações no Padrão ABNT](#6-citações-no-padrão-abnt)
 7. [Erros Comuns e Como Evitá-los](#7-erros-comuns-e-como-evitá-los)
 8. [Dicas Finais de Revisão](#8-dicas-finais-de-revisão)
+9. [Formatação ABNT: Títulos, Ilustrações e Documentos Complementares](#9-formatação-abnt-títulos-ilustrações-e-documentos-complementares)
 
 ---
 
@@ -230,6 +231,26 @@ A conclusão **não** é um resumo do trabalho. É uma avaliação de fechamento
 | **Criticar** | O autor avalia negativamente | "Peçanha (2024) critica a falta de..." |
 | **Concordar** | Alinhamento com outro autor | "Em concordância com Breiman (2001), ..." |
 
+### Verbos para Objetivo Geral e Objetivos Específicos
+
+Objetivos são sempre escritos no **infinitivo** e devem ser **verificáveis** — evite verbos vagos como "estudar", "saber" ou "entender", que não permitem checar se foram alcançados.
+
+**Objetivo geral:** expressa a finalidade macro do trabalho (normalmente um único objetivo).
+
+| Verbos recomendados |
+|---|
+| Analisar, Investigar, Avaliar, Compreender, Desenvolver, Propor, Verificar, Examinar, Determinar |
+
+**Objetivos específicos:** decompõem o objetivo geral em etapas mensuráveis. Evite repetir o verbo já usado no objetivo geral.
+
+| Nível | Verbos recomendados |
+|-------|---------------------|
+| Levantamento/organização | Identificar, Descrever, Levantar, Selecionar, Coletar, Caracterizar |
+| Análise/comparação | Comparar, Classificar, Relacionar, Mensurar, Calcular, Correlacionar |
+| Síntese/aplicação/avaliação | Elaborar, Desenvolver, Validar, Aplicar, Implementar, Avaliar |
+
+> ⚠️ **Erro comum:** usar o mesmo verbo no objetivo geral e em um objetivo específico (ex: "Avaliar o desempenho de modelos..." como geral e "Avaliar a acurácia do modelo X..." como específico). Prefira verbos distintos e mais operacionais nos específicos.
+
 ---
 
 ## 5. Conectivos e Transições
@@ -390,6 +411,78 @@ Regra: defina a sigla na **primeira** ocorrência. Nas demais, use apenas a sigl
 ### O teste do "E daí?"
 
 Após cada parágrafo, pergunte: "E daí? Por que isso importa?" Se você não consegue responder, o parágrafo provavelmente precisa de uma frase de conexão ou interpretação.
+
+---
+
+## 9. Formatação ABNT: Títulos, Ilustrações e Documentos Complementares
+
+### 9.1 Maiúsculas em títulos de seção
+
+A NBR 6024 não exige que os títulos de seção sejam escritos inteiramente em caixa alta — ela exige apenas destaque gráfico progressivo entre os níveis hierárquicos (negrito, itálico ou grifo), com ênfase decrescente à medida que a seção se torna mais específica.
+
+**Opção mais recomendada atualmente:** apenas a primeira letra da primeira palavra em maiúscula (e nomes próprios), destacada em **negrito** — evitando caixa alta total, considerada uma prática ultrapassada e que dificulta a leitura.
+
+- ✅ "3 Metodologia" (com negrito)
+- ⚠️ "3 METODOLOGIA" (aceito, mas cada vez menos recomendado)
+
+Qualquer que seja a opção escolhida, aplique-a de forma consistente em todo o documento, inclusive no sumário.
+
+### 9.2 Não se usa ponto final em títulos
+
+Títulos de seções, de tabelas e de ilustrações **nunca** recebem ponto final, hífen, travessão ou qualquer sinal de pontuação ao final.
+
+- ❌ "3 Metodologia." → ✅ "3 Metodologia"
+- ❌ "Tabela 2 — Distribuição por sexo." → ✅ "Tabela 2 — Distribuição por sexo"
+
+### 9.3 Ilustrações: numeração, título e fonte são obrigatórios
+
+Toda ilustração (figura, gráfico, mapa, fotografia, organograma, fluxograma etc.) deve conter, sem exceção:
+
+1. **Identificação acima**, com a palavra designativa + número de ordem (algarismos arábicos) + título. Ex: "Figura 3 — Distribuição de clientes por faixa etária".
+2. **Fonte abaixo**, mesmo quando a ilustração é de autoria própria. Ex: "Fonte: elaborado pelo autor (2024)." ou "Fonte: adaptado de Silva (2020)."
+3. Referência explícita no corpo do texto ("conforme a Figura 3...") antes ou logo após a ilustração aparecer.
+
+> ⚠️ Ilustração sem fonte é um dos erros mais comuns — e mais penalizados em bancas. "Fonte: o autor" é aceitável, mas nunca deixe em branco.
+
+### 9.4 Tabela x Quadro: qual a diferença?
+
+| | Tabela | Quadro |
+|---|--------|--------|
+| **Conteúdo** | Dados numéricos/estatísticos | Dados textuais, qualitativos |
+| **Bordas** | Aberta nas laterais (sem traços verticais nas bordas) | Fechado (moldura completa em todos os lados) |
+| **Norma que rege a apresentação** | Normas de Apresentação Tabular do IBGE | Tratada como ilustração (mesma regra de figuras) |
+| **Numeração** | Própria e sequencial, independente das demais ilustrações | Sequencial, junto com as demais ilustrações |
+| **Exemplo típico** | Resultados de um modelo, distribuição de frequências | Comparação de trabalhos correlatos, definição de variáveis, cronograma |
+
+### 9.5 Título de tabela segundo a norma do IBGE
+
+O título de uma tabela deve responder a três perguntas (Normas de Apresentação Tabular do IBGE):
+
+- **O quê?** — o fenômeno/variável descrito
+- **Onde?** — o local a que os dados se referem
+- **Quando?** — o período de referência dos dados
+
+Ex: "Tabela 4 — Número de clientes por faixa de renda, na Paraíba, 2023"
+
+O título fica **acima** da tabela; a fonte, **abaixo**. Tabelas não têm bordas verticais nas laterais — apenas linhas horizontais para separar o cabeçalho e fechar a base.
+
+### 9.6 Valores monetários: como apresentar corretamente
+
+- Deixe **sempre um espaço** entre o símbolo da moeda e o valor numérico: ✅ "R$ 1.500,00" ❌ "R$1.500,00"
+- **Em português**, o separador decimal é a vírgula e o separador de milhar é o ponto: "R$ 1.500,75"
+- **Em inglês** (ex: resumo/abstract em inglês), o separador decimal é o ponto e o separador de milhar é a vírgula — a formatação numérica muda, não é apenas uma tradução do símbolo: "US$ 1,500.75"
+- Ao citar moeda estrangeira em um texto em português, mantenha o símbolo/código da moeda, mas adapte a pontuação numérica à convenção do idioma em que o trecho está escrito.
+
+| Idioma do texto | Exemplo correto |
+|---|---|
+| Português | R$ 1.500,75 / US$ 1.500,75 |
+| Inglês | US$ 1,500.75 / $1,500.75 |
+
+### 9.7 Anexo x Apêndice: qual a diferença?
+
+- **Apêndice:** documento **elaborado pelo próprio autor** do trabalho, para complementar sua argumentação (ex: questionário próprio, roteiro de entrevista, código-fonte desenvolvido). Identificado por letra maiúscula consecutiva, travessão e título: "APÊNDICE A — Questionário aplicado".
+- **Anexo:** documento **não elaborado pelo autor**, usado para fundamentar, comprovar ou ilustrar o trabalho (ex: lei, norma, documento de terceiros, formulário oficial). Identificado da mesma forma: "ANEXO A — Lei nº 9.610/1998".
+- Regra prática: "eu escrevi isso?" — se sim, é Apêndice; se não, é Anexo.
 
 ---
 

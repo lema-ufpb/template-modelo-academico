@@ -12,7 +12,7 @@
 
 ## Instruções de Uso
 
-- Adicione uma nova entrada a cada sessão de trabalho (não precisa ser todo dia).
+- Adicione uma nova entrada a cada seção de trabalho (não precisa ser todo dia).
 - Seja honesto(a): registre inclusive o que **não** funcionou. Fracassos documentados são tão valiosos quanto sucessos.
 - Use a estrutura abaixo como guia, mas adapte livremente.
 
