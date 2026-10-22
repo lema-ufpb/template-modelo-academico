@@ -25,11 +25,11 @@ Este repositório fornece uma **arquitetura de projeto pronta para uso** que:
 | Tipo | Descrição | Classe LaTeX | Estrutura |
 |------|-----------|-------------|-----------|
 | `tcc_artigo` | TCC em formato de artigo técnico-científico | `abntex2[article]` | Seções contínuas |
-| `tcc` | TCC padrão / monografia com capítulos | `abntex2` | Capítulos |
+| `tcc` | TCC padrão / monografia dividida em seções | `abntex2` | Seções |
 | `artigo` | Artigo científico avulso | `abntex2[article]` | Seções contínuas |
-| `dissertacao` | Dissertação de mestrado | `abntex2` | Capítulos |
-| `tese` | Tese de doutorado | `abntex2` | Capítulos |
-| `livro` | Livro didático / texto de apoio | `abntex2` | Capítulos |
+| `dissertacao` | Dissertação de mestrado | `abntex2` | Seções |
+| `tese` | Tese de doutorado | `abntex2` | Seções |
+| `livro` | Livro didático / texto de apoio | `abntex2` | Seções |
 | `relatorio` | Relatório técnico-científico | `abntex2[article]` | Seções contínuas |
 | `projeto` | Projeto de pesquisa | `abntex2[article]` | Seções contínuas |
 
